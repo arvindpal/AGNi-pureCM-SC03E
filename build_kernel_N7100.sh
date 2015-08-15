@@ -1,7 +1,6 @@
 #!/bin/sh
 export KERNELDIR=`readlink -f .`
-. ~/AGNi_stamp_CM.sh
-. ~/gcc_prebuilt_4.8.sh
+export CROSS_COMPILE=/home/nian/arm-eabi-4.8/bin/arm-eabi-
 
 export ARCH=arm
 
@@ -15,7 +14,7 @@ fi
 mv .git .git-halt
 
 cd $KERNELDIR/
-make -j3 || exit 1
+make -j8 || exit 1
 
 mkdir -p $KERNELDIR/BUILT_N7100_smdk4x12/lib/modules
 
